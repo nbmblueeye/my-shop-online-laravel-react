@@ -1,0 +1,725 @@
+
+    //Auto Theme Color
+    $my_online_shop_body_background_color: #fff;
+    $my_online_shop_main_background_color: #fff;
+
+    //Light Theme Color
+    $my_online_shop_body_background_light_color: #f2f2f2;
+    $my_online_shop_main_background_light_color: #f3f3f3;
+    //Dark Theme Color
+    $my_online_shop_body_background_dark_color: #111;
+    $my_online_shop_main_background_dark_color: #212529;
+
+    @function set_text_color($color){
+        @if(lightness($color) > 70){
+            @return #111;
+        }@else{
+            @return #f3f3f3;
+        }
+    }
+
+    @mixin set_section_background_color($color){
+        background-color: $color !important;
+        color: set_text_color($color) !important;
+    }
+
+    .my_online_shop_body.auto{
+        background-color:  $my_online_shop_body_background_color;
+        //Main 
+        .my_online_shop_main{
+            background-color: $my_online_shop_main_background_color;
+        }
+
+        //Section
+        .my_online_shop_section{
+            
+            @include set_section_background_color(darken($my_online_shop_body_background_color,5%));
+
+            border-color: darken($my_online_shop_body_background_color,15%);
+        
+            .card-header{
+                border-bottom-color: darken($my_online_shop_body_background_color,15%);
+            }
+
+            .table>:not(caption)>*>*{
+                border-color: darken($my_online_shop_body_background_color,15%);
+                @include set_section_background_color(darken($my_online_shop_body_background_color,5%))
+            }
+        }
+
+        //Component
+        .my_online_shop_component, .my_online_shop_component .page-item .page-link{
+            @include set_section_background_color($my_online_shop_body_background_color)
+        }
+
+        .button:hover{
+            @include set_section_background_color(darken($my_online_shop_body_background_color,10%))
+        }
+
+        .add-image-box{
+            border: dashed thin darken($my_online_shop_main_background_color,30%);
+        }
+
+        input,.input-group span, .input-group div, textarea, .form-select, .nav-link.active{
+            background-color: $my_online_shop_body_background_color;
+            color:darken($my_online_shop_body_background_color,70%) !important;
+            border: solid thin darken($my_online_shop_main_background_color,30%);
+        }
+
+        .form-check-input{
+            background-color:darken($my_online_shop_body_background_color,70%) !important;
+        }
+
+        .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+            border: darken($my_online_shop_body_background_color,70%);
+        }
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: darken($my_online_shop_body_background_color,30%);
+            opacity: 1; /* Firefox */
+        }
+        
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: darken($my_online_shop_body_background_color,30%);
+        }
+        
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: darken($my_online_shop_body_background_color,30%);
+        }
+
+    
+        //Header 
+        #my_online_shop_header{
+            background-color: darken($my_online_shop_body_background_color,5%);
+            
+            .sidebar-toggler{
+                color: set_text_color(darken($my_online_shop_body_background_color,5%)) ;
+            }
+
+            .sidebar-toggler:hover{
+                @include set_section_background_color(darken($my_online_shop_body_background_color,10%))
+            }
+
+            .navbar-brand , li a{
+                color: set_text_color(darken($my_online_shop_body_background_color,5%)) ;
+            }
+
+            .nav-item:hover{
+                @include set_section_background_color(darken($my_online_shop_body_background_color,10%))
+            }
+
+            .my_online_shop_section .dropdown-menu{
+                @include set_section_background_color(darken($my_online_shop_body_background_color,5%))
+            }
+
+            .my_online_shop_section .dropdown-menu .dropdown-item:hover{
+                @include set_section_background_color(darken($my_online_shop_body_background_color,10%))
+            }
+        }
+
+        // -------------------------------Admin-------------------------------------------------------------------
+        //Header 
+            .my_online_shop_admin_navbar{
+                .navbar_box{
+                    .navbar-column.left{ border-right-color: darken($my_online_shop_body_background_color,15%); }
+                }
+            }
+        
+
+        //SideBar
+            .my_online_shop_admin_sidebar{       
+                .wrapper{
+                    .sidebar-item:hover{
+                        @include set_section_background_color(darken($my_online_shop_body_background_color,10%))
+                    }
+
+                    .sidebar-item.active{
+                        @include set_section_background_color(darken($my_online_shop_body_background_color,10%))
+                    }
+
+                    .sub-sidebar-item{
+                        .item:hover{
+                            @include set_section_background_color(darken($my_online_shop_body_background_color,10%))
+                        }
+                    }
+
+                    .sub-sidebar-item{
+                        .item.active{
+                            @include set_section_background_color(darken($my_online_shop_body_background_color,10%))
+                        }
+                    }
+            
+                    .my_online_shop_admin_divider{
+                        color: darken($my_online_shop_body_background_color,30%);
+                        .line{
+                            background-color: darken($my_online_shop_body_background_color,15%);
+                        }
+                    }
+
+                }
+            }
+
+    }
+
+    .my_online_shop_body.light{
+
+        background-color:  $my_online_shop_body_background_light_color;
+
+        //Main 
+        .my_online_shop_main{
+            background-color: $my_online_shop_main_background_light_color;
+        }
+
+        //Section
+        .my_online_shop_section{
+            @include set_section_background_color(darken($my_online_shop_body_background_light_color,10%));
+            border-color: darken($my_online_shop_body_background_light_color,15%);
+
+            .card-header{
+                border-bottom-color: darken($my_online_shop_body_background_light_color,15%);;
+            }
+
+            .table>:not(caption)>*>*{
+                border-color: darken($my_online_shop_body_background_light_color,15%);
+                @include set_section_background_color(darken($my_online_shop_body_background_light_color,10%))
+            }
+        }
+
+        //Component
+        .my_online_shop_component, .my_online_shop_component .page-item .page-link{
+            @include set_section_background_color($my_online_shop_body_background_light_color)
+        }
+
+        .button:hover{
+            @include set_section_background_color(darken($my_online_shop_body_background_light_color,10%))
+        }
+
+        .add-image-box{
+            border: dashed thin darken($my_online_shop_body_background_light_color,30%);
+        }
+
+        input, .input-group span, .input-group div, textarea, .form-select, .nav-link.active{
+            background-color: darken($my_online_shop_body_background_light_color,5%);
+            color:darken($my_online_shop_body_background_light_color,70%);
+            border: solid thin darken($my_online_shop_body_background_light_color,30%);
+        }
+
+        .form-check-input{
+            background-color: darken($my_online_shop_body_background_light_color,70%);
+        }
+
+
+        .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+            border: solid thin darken($my_online_shop_body_background_light_color,30%);
+        }
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: darken($my_online_shop_body_background_light_color,30%);
+            opacity: 1; /* Firefox */
+        }
+        
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: darken($my_online_shop_body_background_light_color,30%);
+        }
+        
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: darken($my_online_shop_body_background_light_color,30%);
+        }
+
+        //Header 
+        #my_online_shop_header{
+            background-color: darken($my_online_shop_body_background_light_color,10%);
+
+            .sidebar-toggler{
+                color: set_text_color(darken($my_online_shop_body_background_light_color,10%)) ;
+            }
+
+            .sidebar-toggler:hover{
+                @include set_section_background_color(darken($my_online_shop_body_background_light_color,15%))
+            }
+            
+            
+        .navbar-brand , li a{
+                color: set_text_color(darken($my_online_shop_body_background_light_color,10%)) ;
+            }
+
+            .nav-item:hover{
+                @include set_section_background_color(darken($my_online_shop_body_background_light_color,15%))
+            }
+
+            .my_online_shop_section .dropdown-menu{
+                @include set_section_background_color(darken($my_online_shop_body_background_light_color,10%))
+            }
+
+            .my_online_shop_section .dropdown-menu .dropdown-item:hover{
+                @include set_section_background_color(darken($my_online_shop_body_background_light_color,20%))
+            }
+        }
+
+        // -------------------------------Admin-------------------------------------------------------------------
+        //Header 
+            .my_online_shop_admin_navbar{
+                .navbar_box{
+                    .navbar-column.left{ border-right-color: darken($my_online_shop_body_background_light_color,15%); }
+                }
+            }
+
+        //SideBar
+            .my_online_shop_admin_sidebar{       
+                .wrapper{
+                    .sidebar-item:hover{
+                        @include set_section_background_color(darken($my_online_shop_body_background_light_color,15%))
+                    }
+
+                    .sidebar-item.active{
+                        @include set_section_background_color(darken($my_online_shop_body_background_light_color,15%))
+                    }
+
+
+                    .sub-sidebar-item{
+                        .item:hover{
+                            @include set_section_background_color(darken($my_online_shop_body_background_light_color,15%))
+                        }
+                    }
+
+                    .sub-sidebar-item{
+                        .item.active{
+                            @include set_section_background_color(darken($my_online_shop_body_background_light_color,15%))
+                        }
+                    }
+            
+                    .my_online_shop_admin_divider{
+                        color: darken($my_online_shop_body_background_light_color,30%);
+                        .line{
+                            background-color: darken($my_online_shop_body_background_light_color,15%);
+                        }
+                    }
+                }
+            }
+
+    }
+
+    .my_online_shop_body.dark{
+
+        background-color: $my_online_shop_body_background_dark_color;
+
+        //Main 
+        .my_online_shop_main{
+            background-color: $my_online_shop_main_background_dark_color;
+        }
+
+        //Section
+        .my_online_shop_section{
+            @include set_section_background_color(lighten($my_online_shop_body_background_dark_color, 10%));
+            border-color: lighten($my_online_shop_body_background_dark_color,40%);
+
+            .card-header{
+                border-bottom-color: lighten($my_online_shop_body_background_dark_color,40%);
+            }
+
+            .table>:not(caption)>*>*{
+                border-color: lighten($my_online_shop_body_background_dark_color,40%);
+                @include set_section_background_color(lighten($my_online_shop_body_background_dark_color, 10%))
+            }
+
+        }
+
+        //Component
+        .my_online_shop_component, .my_online_shop_component .page-item .page-link{
+            @include set_section_background_color($my_online_shop_body_background_dark_color)
+        }
+
+        .button:hover{
+            @include set_section_background_color(lighten($my_online_shop_body_background_dark_color, 20%))
+        }
+
+        .add-image-box{
+            border: dashed thin lighten($my_online_shop_body_background_dark_color,40%);
+        }
+
+        input, .input-group span, .input-group div ,textarea, .form-select, .form-check-input, .nav-link.active{
+            background-color: $my_online_shop_body_background_dark_color;
+            color:lighten($my_online_shop_body_background_dark_color,70%);
+            border: solid thin lighten($my_online_shop_body_background_dark_color,40%);
+        }
+        
+        .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+            border: solid thin lighten($my_online_shop_body_background_dark_color,40%);
+        }
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: lighten($my_online_shop_body_background_dark_color,40%);
+            opacity: 1; /* Firefox */
+        }
+        
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: lighten($my_online_shop_body_background_dark_color,40%);
+        }
+        
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: lighten($my_online_shop_body_background_dark_color,40%);
+        }
+
+
+        //Header 
+        #my_online_shop_header{
+            background-color: lighten($my_online_shop_body_background_dark_color, 10%);
+
+            .sidebar-toggler{
+                color: set_text_color(lighten($my_online_shop_body_background_dark_color, 10%)) ;
+            }
+
+            .sidebar-toggler:hover{
+                @include set_section_background_color(lighten($my_online_shop_body_background_dark_color, 20%))
+            }
+            
+        .navbar-brand , li a{
+                color: set_text_color(lighten($my_online_shop_body_background_dark_color, 10%)) ;
+            }
+
+            .nav-item:hover{
+                @include set_section_background_color(lighten($my_online_shop_body_background_dark_color, 20%))
+            }
+
+            .my_online_shop_section .dropdown-menu{
+                @include set_section_background_color(lighten($my_online_shop_body_background_dark_color, 10%))
+            }
+
+            .my_online_shop_section .dropdown-menu .dropdown-item:hover{
+                @include set_section_background_color(lighten($my_online_shop_body_background_dark_color, 20%))
+            }
+        }
+
+        // -------------------------------Admin-------------------------------------------------------------------
+        //Header 
+            .my_online_shop_admin_navbar{
+                .navbar_box{
+                    .navbar-column.left{ border-right-color: lighten($my_online_shop_body_background_dark_color,20%); }
+                }
+            }
+        
+        //SideBar
+            .my_online_shop_admin_sidebar{       
+                .wrapper{
+                    .sidebar-item:hover{
+                        @include set_section_background_color(lighten($my_online_shop_body_background_dark_color, 20%))
+                    }
+
+                    .sidebar-item.active{
+                        @include set_section_background_color(lighten($my_online_shop_body_background_dark_color, 20%))
+                    }
+
+                    .sub-sidebar-item{
+                        .item:hover{
+                            @include set_section_background_color(lighten($my_online_shop_body_background_dark_color, 20%))
+                        }
+                    }
+
+                    .sub-sidebar-item{
+                        .item.active{
+                            @include set_section_background_color(lighten($my_online_shop_body_background_dark_color, 20%))
+                        }
+                    }
+            
+                    .my_online_shop_admin_divider{
+                        color: lighten($my_online_shop_body_background_dark_color,40%);
+                        .line{
+                            background-color: lighten($my_online_shop_body_background_dark_color,20%);
+                        }
+                    }
+                }
+            }
+
+    }
+
+    ///Admin Theme Style
+    .my_online_shop_admin{
+        position: relative;
+        display: grid; 
+    }
+
+    @media screen and (min-width: 768px) {
+
+        .my_online_shop_admin{
+
+            grid-template-columns: 225px auto;
+            transition: all 0.3s ease-in-out;
+
+            .side-bar{
+                transform: translateX(0%);
+                transition: all 0.3s ease-in-out;
+            }
+        }
+
+        .my_online_shop_admin.hide-side-bar{
+            grid-template-columns: auto;
+        
+            .side-bar{
+                position: absolute;
+                transform: translateX(-300%);
+            }
+
+        }
+
+        .search{
+            margin-left: 1rem;
+        }
+
+    }
+
+    @media screen and (min-width: 992px) {
+
+        .my_online_shop_admin{
+
+            grid-template-columns:20% auto;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .my_online_shop_admin.hide-side-bar{
+            grid-template-columns: auto;
+        
+            .side-bar{
+                position: absolute;
+                transform: translateX(-300%);
+            }
+
+        }
+
+        .search{
+            margin-left: 3rem;
+        }
+    }
+
+    @media screen and (max-width: 770px) {
+
+        .my_online_shop_admin{
+            grid-template-columns: 100%;
+            position: relative;
+
+            .side-bar{
+                width: 225px;
+                position: absolute;
+                transform: translateX(0%);
+                z-index: 999;
+                transition: transform 0.3s ease-in-out;
+                .my_online_shop_admin_sidebar{
+                    padding: 2rem 0.5rem 0 0;
+                }
+
+            }
+
+            .side-bar.hide-side-bar{
+                transform: translateX(-150%);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .content{
+                .my_online_shop_admin_content{
+                    padding: 2rem 0;
+                }
+                
+            }
+        }
+
+    }   
+
+
+// -----------------------------NAV bar-------------------------------------
+
+    .my_online_shop_admin_navbar {
+
+        .navbar_box{
+            display: grid;
+            grid-template-columns: 225px auto;
+            width: 100%;
+
+            .navbar-column.left{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                border-right: 1px solid;
+            }
+
+            .navbar-column.right{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            
+                .search-icon{
+                    display: none;
+                }
+            }
+        }
+
+
+        @media screen and (max-width: 770px) {
+
+            .navbar_box{
+                grid-template-columns: 20% auto;
+                
+                .navbar-column.right{
+                
+                    justify-content: flex-end;
+                
+                    .search{
+                        display: none;
+                    }
+
+                    .my-portfolio-box{
+                        float: end;
+
+                        .search-icon{
+                            display: block;
+                        }
+                    }
+
+                }
+
+                .search.display-search{
+                    position: absolute;
+                    left: 0;
+                    bottom: -100%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    z-index: 999;
+
+                    form{
+                        max-width: 500px;
+                    }
+                }
+
+            }
+
+        }   
+
+        
+    }
+
+    .my_online_shop_admin_navbar .sidebar-toggler{
+        width: 40px;
+        height: 40px;
+        border-radius: 0.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5rem;
+        border: none;
+        cursor: pointer;
+        z-index: 999;
+    }
+
+    .my_online_shop_admin_navbar .sidebar-toggler span{
+        font-size: 30px;
+    }
+
+// -----------------------------SideBar-------------------------------------
+
+    .my_online_shop_admin_sidebar{
+
+        margin-top: 2rem;
+        margin-right: 2rem;
+        z-index: 999 !important;
+        min-height: calc(100% - 2rem);
+
+        .wrapper{ 
+             padding: 1rem;
+            a{
+                text-decoration: none;
+            }
+            .sidebar-box{
+
+                margin-bottom: 1rem;
+
+                .sidebar-item{
+                    margin-bottom: 0.5rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    cursor: pointer;
+
+                    .item-signal{
+                        transition: all 0.2s ease-in;
+                    }
+
+                    .item-signal.show{
+                        transform: rotate(180deg);
+                    }
+
+                }
+
+                .sub-sidebar-item{
+                    max-height: 0;
+                    opacity: 0;
+                    overflow: hidden;
+                    transition: all 0.5s ease-out;
+                    .item{
+                        margin-bottom: 0.75rem;
+                        padding-left: 2.5rem;
+                        cursor: pointer;
+                    }
+                }
+
+                .sub-sidebar-item.active{
+                    opacity: 1;
+                    max-height: fit-content;
+                }
+
+            }
+            .my_online_shop_admin_divider{
+
+                display: flex;
+                align-items: center;
+                padding: 3rem 0 1rem 0;
+                .line{
+                    height: 0.1px;
+                }
+            }
+        }
+    }
+
+// -----------------------------Content-------------------------------------
+    .my_online_shop_admin_content{
+        margin-top: 2rem;
+        width: 100%; 
+        z-index: 500;
+        .wrapper{
+            .card{
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .admin-view-more-box{
+        text-decoration: none !important;
+    }
+
+    .admin-view-more{
+        display: flex;
+        flex-direction: row;
+        color: #e8e2e2;
+        transition: all 0.2s;
+        span{
+           border-bottom: solid 1px;
+           border-bottom-color: #f2f2f2;
+        }
+
+        i{
+            margin-left: 0.15rem;
+        }
+    }
+
+    .admin-view-more:hover{
+
+        span{
+            border-bottom-color: #353434;
+        }
+
+        i{
+            margin-left: 0.35rem;
+        }
+    }
+

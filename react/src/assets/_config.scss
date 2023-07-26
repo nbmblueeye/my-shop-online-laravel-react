@@ -1,0 +1,164 @@
+@import '_config_admin';
+@import 'frontend';
+@import '_card';
+@import '_swiper';
+@import '_single_product';
+@import '_navbar.scss';
+@import '_footer.scss';
+@import 'content-styles.scss';
+
+/* <------------------Page Global Attributes-------------------> */
+
+    //Auto Theme Color
+    $my_online_shop_body_background_color: #fff;
+    $my_online_shop_main_background_color: #fff;
+
+    //Light Theme Color
+    $my_online_shop_body_background_light_color: #f2f2f2;
+    $my_online_shop_main_background_light_color: #f3f3f3;
+    //Dark Theme Color
+    $my_online_shop_body_background_dark_color: #111;
+    $my_online_shop_main_background_dark_color: #212529;
+
+    @function set_text_color($color){
+        @if(lightness($color) > 70){
+            @return #111;
+        }@else{
+            @return #f3f3f3;
+        }
+    }
+
+    @mixin set_section_background_color($color){
+        background-color: $color !important;
+        color: set_text_color($color) !important;
+    }
+
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    body{
+        min-height: 100%;
+        min-height: 100vh;
+    }
+
+    .my-online-shop-main-section-content{
+        height: 100%;
+        padding-bottom: 3rem;
+        .my-online-shop-section:not(:last-child){
+            margin-bottom: 6rem;
+        }
+
+        .my-online-shop-section.breadcrumb{
+            --bs-breadcrumb-divider: '>';
+            margin-bottom: 1rem;
+            padding: 1rem;
+            @include set_section_background_color(darken($my_online_shop_main_background_color,5%));
+        }
+    }
+
+    // Color
+    .my-online-shop-main-section{
+        background-color:  $my_online_shop_body_background_color;
+        //Main 
+        .my-online-shop-main-section-content{
+            background-color: $my_online_shop_main_background_color;
+        }
+        .my-online-shop-section.section-color, .card{
+            @include set_section_background_color(darken($my_online_shop_main_background_color,5%));
+            border-color: darken($my_online_shop_main_background_color,15%);
+        
+            .card-header{
+                border-bottom-color: darken($my_online_shop_main_background_color,15%);
+            } 
+        }
+    }
+
+/* <------------------End Page Global Attributes-------------------> */
+
+
+/* <============Add Image Button============> */
+
+    .add-image-box{
+        max-width: 150px;
+        min-height: 150px;
+        border: thin dashed;
+        border-radius: 5px;
+        position: relative;
+
+        .add-image-name{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 0;
+        }
+
+        #image-input{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+        
+        img{
+            width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .delete-image-btn{
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: translate3d(50%, -50%, 0);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            z-index: 999;
+            transition: all 0.25s;
+        }
+
+        .delete-image-btn:hover{
+            background-color: rgb(206, 93, 93);
+        }
+
+        .delete-image-btn span{
+            font-size: 20px;
+            padding: 0;
+        }
+    }
+
+    .add-more-image-to-gallary{
+        position: relative;
+        #image-input{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }    
+    }
+
+    // <------------Print to PDF File---------------->
+    @media print {
+        @page { size: landscape; }
+    }
+
+ 
+
+

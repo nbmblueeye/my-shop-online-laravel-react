@@ -1,0 +1,20 @@
+.single_product_detail_infomation{
+        width: 100%;
+        padding: 2rem;
+        h4, h5, p{
+            padding: 0;
+            margin: 0;
+        }
+        .header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+    
+            .stock-sign{
+                display: flex;
+                text-align: center;
+                align-items: center;
+                padding: 0px 5px;
+            }
+        }
+}

@@ -1,0 +1,197 @@
+/* <------------------- Product Card-------------------> */
+  .card{
+    z-index: 500 !important;
+  }
+  .card-box {
+    cursor: pointer;
+    a{
+      text-decoration: none;
+    }
+    .card_container{
+        position: relative;   
+        .card_overlay {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 50%;
+          right: 50%;
+          background-color: rgba(0, 0, 0, 0.1);
+          z-index: 999;
+          overflow: hidden;
+          width: 0%;
+          height: 100%;
+          transition: .5s ease;
+          display: flex;
+          justify-content:center;
+          align-items: center;
+        }
+
+        .card_overlay span{
+          font-size: 2rem;
+          opacity: 0;
+          position: relative;
+          top: -50px;
+          transition: .6s ease;
+        }
+
+    }
+
+  }
+
+  #tooltip-top > .tooltip-inner {
+    background-color: #c1f1e1;
+    color: #4c1cc5;
+  }
+
+  .card-box:hover .card_container .card_overlay {
+    width: 100%;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    transform: translateY(0%);
+  }
+
+  .card-box:hover .card_container .card_overlay span{
+    opacity: 1;
+    top: 0px;
+  }
+
+  .badge-sign{
+    z-index: 999;
+    transform-origin: rotate(45deg);
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(45deg);
+    transform-origin: 90% 180%;
+  }
+
+/* <-------------------End Card-------------------> */
+
+/* <-------------------Archive Page Category Card-------------------> */  
+    @media only screen and (min-width: 768px) {
+      .my-online-shop-section.archive-page-category{
+        .card-box {
+          cursor: pointer;
+          .card_container{
+            position: relative;
+            /* The overlay effect - lays on top of the container and over the image */
+            .category_card_overlay{
+              position: absolute;
+              bottom: 0;
+              background: rgb(0, 0, 0);
+              background: rgba(0, 0, 0, 0.5); /* Black see-through */
+              color: #f1f1f1;
+              width: 100%;
+              transition: .5s ease;
+              opacity:0;
+              transform: translateY(-100%);
+              color: white;
+              font-size: 16px;
+              display: flex;
+              flex-wrap: wrap;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+              padding: 0 2px;
+            }
+
+            h5{
+              margin-bottom: 0;
+            }
+
+          }
+        }
+
+        /* When you mouse over the container, fade in the overlay title */
+        .card-box:hover .card_container .category_card_overlay{
+          opacity: 1;
+          transform: translateY(0%);
+        }
+      }
+    }
+
+/* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (max-width: 768px) {
+    .my-online-shop-section.archive-page-category{
+        .card-box {
+          .card_container{
+            position: static;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+
+            img{
+              max-width: 100px;
+              object-fit: cover;
+            }
+          
+            /* The overlay effect - lays on top of the container and over the image */
+            .category_card_overlay{
+              position: static;
+              bottom: 0;
+              background: rgba(255, 255, 255, 0.1); /* Black see-through */
+              color: #111;
+              width: 100%;
+              opacity:1;
+              transform: translateY(0%);
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0 0.5rem;
+            }
+      
+          }
+        }
+      }
+    }
+
+/* <-------------------End Archive Page Category Card-------------------> */  
+
+/* <-------------------Section Title-------------------> */  
+
+  .my-online-shop-section{
+      .card-section-title{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 1rem;
+
+        .section-title{
+           border-bottom: 3px solid #c1f1e1;
+        }
+
+        .view-more{
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+
+          .view-more-link{
+            text-decoration: none;
+            margin-right: 0.1rem;
+            border-bottom: 2px solid #4c1cc5;
+          }
+
+          .icon{
+            color: #4c1cc5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+          }
+        }
+
+        .view-more:hover{
+          .view-more-link{
+            text-decoration: none; 
+            border-bottom: 2px solid #b5a9d3;
+          }
+
+          .icon{
+            color: #b5a9d3;
+            transform: translateX(0.25rem);
+          }
+        }
+      }
+  }
+   
